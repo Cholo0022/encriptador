@@ -5,11 +5,6 @@
 }
 
 body {
-  background-color: rgb(130, 243, 164);
-  font-family: sans-serif;
-}
-
-.main {
-  display: flex;
-  justify-content: center;
+  background-color: rgb(56, 25, 231);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
