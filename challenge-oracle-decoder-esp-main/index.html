@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Encriptador de frases</title>
+  </head>
+  <body>
+    <h1>Código secreto</h1>
+    <main class="main">
+      <section class="form">
+        <form action="">
+          <label for="texto"
+            >Ingrese solo letras minusculas, sin caracteres especiales</label
+          >
+          <input
+            type="text"
+            name="texto"
+            id="texto"
+            placeholder="Ingrese el texto aquí"
+          />
+          <input type="submit" value="encriptar" id="boton-encriptar" />
+          <input type="submit" value="desencriptar" id="boton-desencriptar" />
+        </form>
+      </section>
+    </main>
+
+    <section class="encriptado">
+      <h2>Mensaje desencritado</h2>
+      <input type="text" name="encriptado" id="encriptado" />
+      <input type="submit" value="copiar" id="boton-copiar" />
+    </section>
+
+    <section class="footer">
+      <footer>
+        <div>Andrés Alexis Bozzani</div>
+      </footer>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
