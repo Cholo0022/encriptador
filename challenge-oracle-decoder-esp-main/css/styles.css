@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(130, 243, 164);
+  font-family: sans-serif;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
