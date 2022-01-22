@@ -1,3 +1,10 @@
+var botonEncriptar = document.querySelector("#botonEncriptar")
+
+botonEncriptar.addEventListener("click", function () {
+    console.log("Hiciste click en encriptar");
+})
+
+
 /* Reglas de encriptación: 
 "e" es convertido para "enter" 
 "i" es convertido para "imes"
