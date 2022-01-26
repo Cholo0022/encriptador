@@ -1,11 +1,14 @@
+//Función para encriptar frase ingresada
 function encriptarFrase() {
+  //Selecciono el boton para encriptar
   var botonEncriptar = document.querySelector("#botonEncriptar");
-
+  //Tomo el evento click
   botonEncriptar.addEventListener("click", function () {
+    //agarro lo que hay en el input y lo guardo en una variable.
     var frase = document.querySelector("#inputText");
     var fraseSinEncriptar = frase.value.toLowerCase();
     var fraseEncriptada = [];
-
+    //Reccorro la frase ingresada y y comparo caracter para luego ingresarlos a un array y encriptar mi frase.
     for (var i = 0; i < fraseSinEncriptar.length; i++) {
       var letraCoincidente = false;
       if (fraseSinEncriptar[i] === "a") {
@@ -33,58 +36,70 @@ function encriptarFrase() {
         fraseEncriptada.push(fraseSinEncriptar[i]);
       }
     }
+    //Limpio input de frase despues de ser procesada
+    limpiar();
+    //Retorno el valor en el input y uso el join() para convertirlo en string
+    return (document.getElementById("textoProcesado").value =
+      fraseEncriptada.join(""));
+  });
+}
+ //Función para desencriptar frase ingresada
+function desencriptarFrase() {
+  //Selecciono el boton para desencriptar
+  var botonDesencriptar = document.querySelector("#botonDesencriptar");
+  //Tomo el evento click
+  botonDesencriptar.addEventListener("click", function () {
+    //agarro lo que hay en el input y lo guardo en una variable.
+    var frase = document.querySelector("#inputText");
+    var fraseEncriptada = frase.value.split("");
+    var letraCoincidente = false;
+    // Recorro la frase encriptada, comparo valores y quito los caracteres para desencritar la frase
+    for (var i = 0; i < fraseEncriptada.length; i++) {
+      if (fraseEncriptada[i] === "a" && fraseEncriptada[i + 1] === "i") {
+        letraCoincidente = true;
+        fraseEncriptada.splice(i + 1, 1);
+      }
+      if (fraseEncriptada[i] === "e" && fraseEncriptada[i+1] === "n" &&      fraseEncriptada[i+2] === "t" &&  fraseEncriptada[i+3] === "e" && fraseEncriptada[i+4] === "r" ) {
+        letraCoincidente = true;
+        fraseEncriptada.splice(i + 1, 4);
+      }
+      
+      if (fraseEncriptada[i] === "i" && fraseEncriptada[i+1] === "m" && fraseEncriptada[i+2] === "e" && fraseEncriptada[i+3] === "s") {
+        letraCoincidente = true;
+        fraseEncriptada.splice(i + 1, 3);
+      }
+      if (fraseEncriptada[i] === "o" && fraseEncriptada[i+1] === "b" && fraseEncriptada[i+2] === "e" && fraseEncriptada[i+3] === "r") {
+        letraCoincidente = true;
+        fraseEncriptada.splice(i + 1, 3)
+      }
+      if (fraseEncriptada[i] === "u" && fraseEncriptada[i + 1] === "f" && fraseEncriptada[i + 2] === "a" && fraseEncriptada[i + 3] === "t") {
+        letraCoincidente = true;
+        fraseEncriptada.splice(i + 1, 3);
+      }    
+    }
+    //Limpio input de frase despues de ser procesada
+    limpiar();
+    //Retorno el valor en el input y uso el join() para convertirlo en string
     return (document.getElementById("textoProcesado").value =
       fraseEncriptada.join(""));
   });
 }
 
-function desencriptarFrase() {
-  var botonDesencriptar = document.querySelector("#botonDesencriptar");
-
-  botonDesencriptar.addEventListener("click", function () {
-    var frase = document.querySelector("#inputText");
-    var fraseEncriptada = frase.value.toLowerCase();
-    var fraseDesencriptada = [];
-
-    for (var i = 0; i < fraseEncriptada.length; i++) {
-      var letraCoincidente = false;
-      if (fraseEncriptada[i] === "ia") {
-        letraCoincidente = true;
-        fraseDesencriptada.push("a");
-      }
-      if (fraseEncriptada[i] === "enter") {
-        letraCoincidente = true;
-        fraseDesencriptada.push("e");
-      }
-      if (fraseEncriptada[i] === "imes") {
-        letraCoincidente = true;
-        fraseDesencriptada.push("i");
-      }
-      if (fraseEncriptada[i] === "ober") {
-        letraCoincidente = true;
-        fraseDesencriptada.push("o");
-      }
-      if (fraseEncriptada[i] === "ufat") {
-        letraCoincidente = true;
-        fraseDesencriptada.push("u");
-      }
-      if (letraCoincidente == false) {
-        letraCoincidente = true;
-        fraseDesencriptada.push(fraseEncriptada[i]);
-      }
-    }
-    return (document.getElementById("textoProcesado").value =
-      fraseDesencriptada.join(""));
-  });
+function limpiar() {
+  document.getElementById("inputText").value = "";
 }
-
+//Llamo a la función para encriptar la frase
 encriptarFrase();
+//Llamo a la función para desencriptar la frase
 desencriptarFrase();
 
+//función para copiar el texto encriptado o desencriptado
 function copiarTexto() {
-  var content = document.getElementById("textoProcesado");
-
-  content.select();
+  //Guardo en la variable el texto procesado.
+  var textoCopiar = document.getElementById("textoProcesado");
+  //Seleciono texto procesado
+  textoCopiar.select();
+  //Copio en portapapeles el texto selecionado
   document.execCommand("copy");
 }
 
